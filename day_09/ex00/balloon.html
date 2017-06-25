@@ -1,0 +1,62 @@
+<HTML>
+	<HEAD>
+		<SCRIPT>
+		</SCRIPT>
+	</HEAD>
+	<BODY>
+		<div id="balloon" onclick="balloon_click()"  onmouseout="balloon_mouseover()" style="background-color:red;height:200px;width:200px;border-radius:1000px;margin:auto;">
+		<SCRIPT>
+		function balloon_click ()
+		{
+			if (document.getElementById("balloon").style.backgroundColor == "red")
+				document.getElementById("balloon").style.backgroundColor = "green";
+			else if (document.getElementById("balloon").style.backgroundColor == "green")
+				document.getElementById("balloon").style.backgroundColor = "blue";
+			else if (document.getElementById("balloon").style.backgroundColor == "blue")
+				document.getElementById("balloon").style.backgroundColor = "red";
+			x = document.getElementById("balloon").offsetWidth;
+			y = document.getElementById("balloon").offsetHeight;
+			if ((y + 10) > 420 || (x + 10) > 420)
+			{
+				y = 200;
+				x = 200;
+			}
+			else
+			{
+				y += 10;
+				x += 10;
+			}
+			document.getElementById("balloon").style.width = x;
+			document.getElementById("balloon").style.height = y;
+			document.getElementById("balloon").style.borderRadius = (y + x) + "px";
+
+		}
+
+		function balloon_mouseover ()
+		{
+			if (document.getElementById("balloon").style.backgroundColor == "red")
+				document.getElementById("balloon").style.backgroundColor = "blue";
+			else if (document.getElementById("balloon").style.backgroundColor == "green")
+				document.getElementById("balloon").style.backgroundColor = "red";
+			else if (document.getElementById("balloon").style.backgroundColor == "blue")
+				document.getElementById("balloon").style.backgroundColor = "green";
+			x = document.getElementById("balloon").offsetWidth;
+			y = document.getElementById("balloon").offsetHeight;
+			if ((y - 5) < 200 || (x - 5) < 200)
+			{
+				y = 200;
+				x = 200;
+			}
+			else
+			{
+				y -= 5;
+				x -= 5;
+			}
+			document.getElementById("balloon").style.width = x;
+			document.getElementById("balloon").style.height = y;
+			document.getElementById("balloon").style.borderRadius = (y + x) + "px";
+		}
+		</SCRIPT>
+		</div>
+	</BODY>
+</HTML>
